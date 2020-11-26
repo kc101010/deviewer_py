@@ -41,7 +41,7 @@ If you have any issues or questions, please contact me at the following;
     https://www.sololearn.com/Profile/4051735
     https://www.codecademy.com/profiles/blueboikc
 
-####################################################################################################################################################
+
 
 
 
