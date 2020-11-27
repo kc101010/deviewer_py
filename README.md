@@ -26,7 +26,7 @@ If you build the module please make sure to copy the contents of "/build/lib.lin
 - C
 - Python (for setup script)
 
-### CONTACT #################################################################################################################################################################################################################################
+# CONTACT 
 
 If you have any issues or questions, please contact me at the following;
 
@@ -34,7 +34,7 @@ If you have any issues or questions, please contact me at the following;
 	https://kc101010.itch.io/passwiz-password-generator
 
 
-### Authored by Project Developer - Kyle Christie (kc101010) ###
+# Authored by Project Developer - Kyle Christie (kc101010) ###
 
     https://github.com/kc101010
     https://kc101010.itch.io
