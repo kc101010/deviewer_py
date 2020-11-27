@@ -41,8 +41,7 @@ If you build the module please make sure to copy the contents of "/build/lib.lin
 If you have any issues or questions, please contact me at the following;
 
 	kcTranslationServices@gmx.com
-	https://kc101010.itch.io/passwiz-password-generator
-
+	
 
 # Authored by Project Developer - Kyle Christie (kc101010) ###
 
