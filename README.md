@@ -21,6 +21,16 @@ At the end of the command please use either build or install without the bracket
 
 If you build the module please make sure to copy the contents of "/build/lib.linux-x86_64-3.8/" into the same directory as your projects in which you plan to use the module.
 
+### Functions
+- get_os      : Returns String of OS name/version
+- get_cpu     : Returns String of CPU name
+- get_cpucore : Returns String number of CPU cores
+- get_gpu     : Returns String of GPU name
+- get_mem     : Returns Int Amount of Memory (Kilobytes)
+- get_user    : Returns String of Current user
+- version     : Returns String of Module Version
+
+
 # Built With
 
 - C
