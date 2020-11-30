@@ -69,7 +69,9 @@ static PyObject* get_cpucore(){
 	    }
    }
 
-   PyObject* core = Py_BuildValue("s", res);
+   int out = atoi(res);
+   //Return int for better use
+   PyObject* core = Py_BuildValue("i", out);
    return core;
 }
 
