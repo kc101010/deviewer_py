@@ -162,13 +162,13 @@ static PyObject* version(PyObject* self){
 }
 
 static PyMethodDef methods[] = {
-        {"get_os", get_os, METH_NOARGS,"Returns OS version."},
-        {"get_gpu", get_gpu, METH_NOARGS, "Returns sys gpu."},
-        {"get_cpu", get_cpu, METH_NOARGS, "Return sys cpu."},
-        {"get_cpucore", get_cpucore, METH_NOARGS, "Return sys cpu cores."},
-        {"get_mem", get_mem, METH_NOARGS, "Returns total sys ram."},
-        {"get_user", get_user, METH_NOARGS, "Returns current users name."},
-        {"version", (PyCFunction)version, METH_NOARGS,"Returns Library Version" },
+        {"get_os", get_os, METH_NOARGS,"Returns String containing OS version."},
+        {"get_gpu", get_gpu, METH_NOARGS, "Returns String containing GPU name."},
+        {"get_cpu", get_cpu, METH_NOARGS, "Return String containing CPU name."},
+        {"get_cpucore", get_cpucore, METH_NOARGS, "Returns Int containing number of CPU cores."},
+        {"get_mem", get_mem, METH_NOARGS, "Returns Int containing amount of RAM."},
+        {"get_user", get_user, METH_NOARGS, "Returns String containing current users name."},
+        {"version", (PyCFunction)version, METH_NOARGS,"Returns String containing module Version" },
         {NULL, NULL, 0, NULL}
 };
 
