@@ -5,19 +5,19 @@
 #include <Python.h>
 
 // deviewer C to Python module
-// WRITTEN xx/11/20 by Kyle Christie -- Converted to Python Module 25/11/20
+// WRITTEN xx/11/20 by Kyle Christie
+// Converted to Python Module 25/11/20
 
 //This python module is aimed towards Linux OS and is tested on Ubuntu
+//9/12/20 -- Removed the use of variables when opening files
 
 //GET OS
 static PyObject* get_os(PyObject* self){
     FILE* fs;
-    char* name = "/proc/version";
-
     char buf[40] = {};
     char* results;
 
-    fs = fopen(name, "r");
+    fs = fopen("/proc/version", "r");
     
     fgets(buf, 32, fs);
     results = buf;
@@ -29,12 +29,11 @@ static PyObject* get_os(PyObject* self){
 //GET CPU
 static PyObject* get_cpu(){
     FILE* fs;
-    char* name = "/proc/cpuinfo";
-
+    
     char buf[40] = {};
     char* results;
 
-    fs = fopen(name, "r");
+    fs = fopen("/proc/cpuinfo", "r");
     
 
     while(fgets(buf, 40, fs)){
@@ -54,12 +53,10 @@ static PyObject* get_cpu(){
 //GET CPU CORES
 static PyObject* get_cpucore(){
     FILE* fs;
-    char* name = "/proc/cpuinfo";
-
     char buf[40] = {};
     char* res;
 
-    fs = fopen(name, "r");
+    fs = fopen("/proc/cpuinfo", "r");
 
     while(fgets(buf, 40, fs)){
 		
@@ -78,15 +75,13 @@ static PyObject* get_cpucore(){
 //GET GPU
 static PyObject* get_gpu(){
     FILE* fs;
-	char* sname = "gpu.txt";	
-
+	
 	system("lshw -numeric -C display > gpu.txt");
 
 	char buf[60] = {};
 	char* results;
-	//char* out;
-
-	fs = fopen(sname, "r");
+	
+	fs = fopen("gpu.txt", "r");
 
 	while(fgets(buf, 60, fs)){
 		
@@ -105,12 +100,10 @@ static PyObject* get_gpu(){
 //GET MEM
 static PyObject* get_mem(){
     FILE* fs;
-    char* name = "/proc/meminfo";
-
     char buf[40] = {};
     char* results;
 
-    fs = fopen(name, "r");
+    fs = fopen("/proc/meminfo", "r");
     int retmem;    
 
     while(fgets(buf, 40, fs)){
@@ -141,7 +134,6 @@ static PyObject* get_user(){
     system("who > user.txt");
 
     FILE* fs;
-
     char buf[10] = {};
     char* results;
 
@@ -158,7 +150,7 @@ static PyObject* get_user(){
 
 
 static PyObject* version(PyObject* self){
-    return Py_BuildValue("s", "Version 0.01");
+    return Py_BuildValue("s", "Version 0.03");
 }
 
 static PyMethodDef methods[] = {
