@@ -10,6 +10,7 @@
 
 //This python module is aimed towards Linux OS and is tested on Ubuntu
 //9/12/20 -- Removed the use of variables when opening files
+//20/12/20 -- Fixed minor display issue with cpu name, added get_bios() 
 
 //GET OS
 static PyObject* get_os(PyObject* self){
@@ -39,7 +40,7 @@ static PyObject* get_cpu(){
     while(fgets(buf, 40, fs)){
 		
 	    if(results = strstr(buf, "model name")){
-		    results = results + 12;
+		    results = results + 13;
             break;
             
         }
@@ -148,9 +149,43 @@ static PyObject* get_user(){
     return user;
 }
 
+static PyObject* get_bios(void){
+    system("sudo dmidecode -t 0 > bios.txt");
+
+    FILE* fs;
+    char buf[60] = {};
+    char get[30] = {};
+    char* bname;
+    char* bvers;
+
+    fs = fopen("bios.txt", "r");
+
+    while(fgets(buf, 60, fs)){
+        if(bname = strstr(buf, "Vendor:")){
+            bname = bname + 8;
+            break;
+        }
+    }
+
+   
+    rewind(fs);
+  
+   while(fgets(get, 30, fs)){
+   	if(bvers = strstr(get, "BIOS Revision:")){
+            bvers = bvers + 15;
+            break;
+        }
+    }
+
+    strtok(bname, "\n");
+    
+    PyObject* bios = Py_BuildValue("s", strcat(bname, bvers));
+    return bios;
+}
+
 
 static PyObject* version(PyObject* self){
-    return Py_BuildValue("s", "Version 0.03");
+    return Py_BuildValue("s", "Version 0.04");
 }
 
 static PyMethodDef methods[] = {
@@ -160,6 +195,7 @@ static PyMethodDef methods[] = {
         {"get_cpucore", get_cpucore, METH_NOARGS, "Returns Int containing number of CPU cores."},
         {"get_mem", get_mem, METH_NOARGS, "Returns Int containing amount of RAM."},
         {"get_user", get_user, METH_NOARGS, "Returns String containing current users name."},
+        {"get_bios", get_bios, METH_NOARGS, "Returns String containing BIOS name and version."},
         {"version", (PyCFunction)version, METH_NOARGS,"Returns String containing module Version" },
         {NULL, NULL, 0, NULL}
 };

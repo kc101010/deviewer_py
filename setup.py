@@ -7,6 +7,6 @@ from distutils.core import setup, Extension
 module = Extension("deviewer", sources = ["deviewer.c"])
 
 setup(name="deviewer-dev",
-            version = "0.3",
+            version = "0.4",
             description="Package for deviewer",
             ext_modules = [module])
