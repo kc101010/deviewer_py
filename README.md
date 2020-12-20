@@ -28,13 +28,15 @@ If you build the module please make sure to copy the contents of "/build/lib.lin
 - get_gpu      : Returns String of GPU name
 - get_mem      : Returns Int Amount of Memory (Kilobytes)
 - get_user     : Returns String of Current user
+- get_bios     : Returns String of BIOS name and version
 - version      : Returns String of Module Version
 
 
 # Built With
 
 - C
-- Python (for setup script)
+- Python 
+- Visual Studio Code
 
 # CONTACT 
 
