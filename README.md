@@ -14,8 +14,7 @@ These tools are necessary as they contain <Python.h>
 
 In the Terminal, run; "sudo apt-get install python-dev" to install dev tools.
 
-After downloading the source files run setup.py using; 
-"python3 setup.py {build/install}"
+After downloading the source files run one of the .sh files as required.
 
 At the end of the command please use either build or install without the brackets to either build a local version of the module or install it to your system. 
 
