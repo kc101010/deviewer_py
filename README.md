@@ -16,8 +16,6 @@ In the Terminal, run; "sudo apt-get install python-dev" to install dev tools.
 
 After downloading the source files run one of the .sh files as required.
 
-At the end of the command please use either build or install without the brackets to either build a local version of the module or install it to your system. 
-
 If you build the module please make sure to copy the contents of "/build/lib.linux-x86_64-3.8/" into the same directory as your projects in which you plan to use the module.
 
 ### Functions
